@@ -11,6 +11,8 @@ import { opencageUrl, opencageAccesskey } from '../api/opencagedata/opencage';
 
 import * as S from './App.style';
 
+import '../assets/styles/styles.scss';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -79,7 +81,7 @@ class App extends React.Component {
     const url = `${ipBaseUrl}json?token=${ipToken}`;
     axios.get(corsApiHost + url).then(res => {
       const {city, country, loc} = res.data;
-      const coordinate = loc.split(',');
+      const coordinate = loc.split(',').map(item => +item);
       this.setState({ city });
       this.setState({ coordinate });
       this.setState({ country })

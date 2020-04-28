@@ -7,12 +7,13 @@ import * as S from './NextDaysWeatherComponent.style';
 const NextDaysWeatherComponent = ({temperatureHigh, icon, time, unit}) => {
   // const { temperatureHigh, icon } = weather;
   const grad = unit === 'F' ? Math.round(temperatureHigh) : Math.round( (temperatureHigh - 32) * 5 / 9);
+  const data = new Date();
+  data.setDate(data.getDate() + time);
 
   return(
   <S.NextDay>
-    Next Day Weather
-    <div>{time.toLocaleString()}</div>
-    <div>{grad}°{unit}</div>
+    <S.Date>{`${data.toDateString()}`}</S.Date>
+    <S.Weather>{grad}°{unit}</S.Weather>
     <Icon className={icon}></Icon>
   </S.NextDay>
   )

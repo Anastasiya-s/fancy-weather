@@ -6,4 +6,5 @@ export const Location = styled.div`
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  text-shadow: 1px 1px 5px black;
 `;

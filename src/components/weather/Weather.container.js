@@ -8,6 +8,11 @@ import { DateComponent } from './components/date-info';
 import * as S from './Weather.style';
 
 const WeatherContainer = ({ currently, city, country, forecast, unit }) => {
+  if(!currently || !city || !country || !forecast) {
+    return (
+      <div>wait please</div>
+    )    
+  }
   if(currently && city && country && forecast){
     return(
       <S.Container>
@@ -21,17 +26,12 @@ const WeatherContainer = ({ currently, city, country, forecast, unit }) => {
               key={index}
               temperatureHigh={forecast.temperatureHigh}
               icon={forecast.icon}
-              time={forecast.time}
+              time={index + 1}
             />
           )}
         </S.Wrapper>
       </S.Container>
     )
-  }
-  if(!currently || !city || !country || !forecast) {
-    return (
-      <div>wait please</div>
-    )    
   }
 }
 

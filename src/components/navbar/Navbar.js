@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from './components/button';
-import { Input } from './components/input';
+// import { Input } from './components/input';
 import { SearchPanel } from './components/search-panel';
 
 import * as S from './Navbar.style';

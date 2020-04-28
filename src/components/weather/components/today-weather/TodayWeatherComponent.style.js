@@ -12,13 +12,18 @@ export const Wrapper = styled.div`
 
 export const Span = styled.span`
   display: block;
+  font-family: "RobotoSlabLight";
+  font-weight: bold;
   font-size: 30px;
   color: white;
   text-transform: uppercase;
+  text-shadow: 1px 1px 5px black;
 `;
 
 export const Temperature = styled.div`
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 200px;
+  line-height: 1.4;
   color: white;
+  text-shadow: 1px 1px 5px black;
 `;

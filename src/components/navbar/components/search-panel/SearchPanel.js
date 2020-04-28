@@ -1,5 +1,5 @@
 import React from 'react';
-import AsyncSelect from 'react-select';
+// import AsyncSelect from 'react-select';
 import axios from 'axios';
 
 import { Button } from '../button';

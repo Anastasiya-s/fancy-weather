@@ -11,7 +11,7 @@ const TodayWeatherComponent = ({ weather, unit }) => {
     <S.Container>
       <S.Temperature>{grad}°{unit}</S.Temperature>
       <div>
-        <Icon className={icon} style="fill: red"/>
+        <Icon className={icon} style={{fill: 'red'}}/>
         <S.Span>{summary}</S.Span>
         <S.Span>Wind: {windSpeed}</S.Span>
         <S.Span>Humidity: {humidity}</S.Span>

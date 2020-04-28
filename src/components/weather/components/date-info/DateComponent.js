@@ -1,5 +1,7 @@
 import React from 'react';
 
+import * as S from './DateComponent.style';
+
 class DateComponent extends React.Component {
   constructor() {
     super();
@@ -17,7 +19,7 @@ class DateComponent extends React.Component {
   }
   render() {
     return (
-      <div>{this.state.time}</div>
+      <S.Date>{this.state.time}</S.Date>
     
     )
   }
