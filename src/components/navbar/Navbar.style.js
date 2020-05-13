@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   width: auto;
   margin: 0 auto;
-  padding: 30px 50px;
+  padding: 30px 0;
 `;
 
 export const ButtonGroup = styled.div`

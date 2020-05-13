@@ -37,7 +37,7 @@ class App extends React.Component {
   handleFetchingBgImage() {
     const url = `${unsplashBaseUrl}?client_id=${accesskey}&query=${this.state.location},city,nature`;
 
-    axios.get(corsApiHost + url).then(res => {
+    axios.get(url).then(res => {
       const bgImageUrl = res.data.urls.regular;
       this.setState({ bgImageUrl })
     })
@@ -90,6 +90,7 @@ class App extends React.Component {
   }
 
   handleCitySearch = (value) => {
+    console.log(value)
     this.setState({ city: value });
     this.getDataByCityName(value);
   }

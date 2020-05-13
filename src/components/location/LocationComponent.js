@@ -14,7 +14,7 @@ const LocationComponent = ({ coordinate }) => {
       <div>
         <YMaps>
           <div>
-            <Map defaultState={{ center: coordinate, zoom: 11 }} />
+            <Map state={{ center: coordinate, zoom: 11 }} />
           </div>
         </YMaps>
       </div>
