@@ -10,12 +10,12 @@ const Navbar = ({ handleBgChange, getCurrentLocation, handleUnitChangeToC, handl
   <S.Nav>
     <div>
       <Button onClick={handleBgChange}>Change Background</Button>
-      <Button>Set Language</Button>
+      {/* <Button>Set Language</Button> */}
       <S.ButtonGroup>
         <Button onClick={handleUnitChangeToC}>C</Button>
         <Button onClick={handleUnitChangeToF}>F</Button>
       </S.ButtonGroup>
-      <Button onClick={getCurrentLocation}>GetLocation</Button>
+      {/* <Button onClick={getCurrentLocation}>GetLocation</Button> */}
     </div>
     <div>
       <SearchPanel 

@@ -1,5 +1,5 @@
-import React from 'react';
-// import AsyncSelect from 'react-select';
+import React, { useState, useEffect } from 'react';
+import Select  from 'react-select';
 import axios from 'axios';
 
 import { Button } from '../button';
@@ -7,66 +7,54 @@ import { Input } from '../input';
 
 import { opencageUrl, opencageAccesskey } from '../../../../api/opencagedata/opencage';
 
-class SearchPanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: '',
-      cityOptions: []
-    }
-  }
+const SearchPanel = (props) => {
 
-  getCityOptions = (value) => {
+  const [ inputValue, setInputValue ] = useState('');
+  const [ cityOptions, setCityOptions ] = useState([]);
+
+  const getCityOptions = (value) => {
     const url = `${opencageUrl}json?q=${value}&key=${opencageAccesskey}`;
     axios.get(url).then(res => {
       const result = res.data.results.map(result => {
         return {
-          value: result.formatted,
-          option: result.formatted,
-          label: result.formatted
-        }})
-      this.setState({ cityOptions: result})     
+        value: result.formatted,
+        label: result.formatted
+        }
+      })
+      setCityOptions(result);
+      console.log(cityOptions);
     })
   }
 
-  filterOptions = (inputValue) => {
-    if (!this.state.cityOptions) return;
-    return this.state.cityOptions.filter(city =>
-      city.label.toLowerCase().includes(inputValue.toLowerCase())
-    );
+const loadOptions = (inputValue) => {
+  // getCityOptions(inputValue);
+  setTimeout(() => getCityOptions(inputValue), 1000);
+};
+
+
+const  handleInputChange = (newValue) => {
+    const inputValue = newValue.replace(/\W/g, '');
+    setInputValue(inputValue);
+    if (inputValue.length > 1) {
+      loadOptions(inputValue);
+    }
   };
 
-  loadOptions = inputValue =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve(this.filterOptions(inputValue));
-      }, 1000);
-  });
-
-  handleInputChange = (value) => {
-    this.setState({ inputValue: value });
-    this.getCityOptions(value);
-    this.loadOptions(value)
+  const handleSearchSubmit = () => {
+    props.handleCitySearch(inputValue);
   }
 
-  handleSearchSubmit = () => {
-    this.props.handleCitySearch(this.state.inputValue);
-  }
+  useEffect(() => {
+    handleInputChange(inputValue)
+  }, [inputValue])
 
-  render() {
-    return (
-      <div>
-        {/* <AsyncSelect 
-          cacheOptions
-          defaultOptions={this.state.cityOptions}
-          loadOptions={this.loadOptions}
-          onInputChange={this.handleInputChange}
-          /> */}
-        <Input onInputChange={this.handleInputChange}/>
-        <Button onClick={this.handleSearchSubmit}>Search</Button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      {cityOptions.map(option => <div>{option.label}</div>)}
+      <Input onInputChange={handleInputChange}/>
+      <Button onClick={handleSearchSubmit}>Search</Button>
+    </div>
+  )
 }
 
 export default SearchPanel;
