@@ -8,7 +8,7 @@ const TodayWeatherComponent = ({ weather, unit }) => {
   const { temperature, summary, icon, windSpeed, humidity } = weather;
   const grad = unit === 'F' ? Math.round(temperature) : Math.round( (temperature - 32) * 5 / 9);
   const windSpeedMS = parseInt(windSpeed * 1.6);
-  const humidityPercent = humidity * 100;
+  const humidityPercent = Math.round(humidity * 100);
   return (
     <S.Container>
       <S.Temperature>{grad}°{unit}</S.Temperature>

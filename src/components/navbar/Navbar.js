@@ -17,11 +17,9 @@ const Navbar = ({ handleBgChange, getCurrentLocation, handleUnitChangeToC, handl
       </S.ButtonGroup>
       {/* <Button onClick={getCurrentLocation}>GetLocation</Button> */}
     </div>
-    <div>
       <SearchPanel 
         handleCitySearch={handleInputSubmit}
       />
-    </div>
   </S.Nav>
 );
 

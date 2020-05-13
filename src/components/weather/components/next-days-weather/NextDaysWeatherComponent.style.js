@@ -11,6 +11,10 @@ export const Date = styled.div`
   line-height: 1.4;
   color: white;
   text-shadow: 1px 1px 5px black;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
 `;
 
 export const Weather = styled.div`
@@ -19,4 +23,7 @@ export const Weather = styled.div`
   line-height: 1.4;
   color: white;
   text-shadow: 1px 1px 5px black;
+  @media (max-width: 600px) {
+    padding: 0 10px;
+  }
 `;

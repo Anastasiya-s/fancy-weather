@@ -105,25 +105,27 @@ class App extends React.Component {
     if(!this.state.coordinate) return;
     if(!this.state.nextDaysWeather) return;
     return (
-      <S.Container  imageUrl={this.state.bgImageUrl}>
-        <Navbar 
-          handleUnitChangeToC={this.convertTempToC}
-          handleUnitChangeToF={this.convertTempToF}
-          handleBgChange={this.handleFetchingBgImage}
-          handleGettingCurrentLocation={this.handleGettingCurrentLocation}
-          handleInputSubmit={this.handleCitySearch}
-        />
-        <S.Wrapper>
-          <WeatherContainer 
-            unit={this.state.temperatureUnit}
-            currently={this.state.todayWeather} 
-            city={this.state.city}
-            country={this.state.country}
-            forecast={this.state.nextDaysWeather}
+      <S.Background  imageUrl={this.state.bgImageUrl}>
+        <S.Container>
+          <Navbar 
+            handleUnitChangeToC={this.convertTempToC}
+            handleUnitChangeToF={this.convertTempToF}
+            handleBgChange={this.handleFetchingBgImage}
+            handleGettingCurrentLocation={this.handleGettingCurrentLocation}
+            handleInputSubmit={this.handleCitySearch}
           />
-          <LocationComponent coordinate={this.state.coordinate}/>
-        </S.Wrapper>
-      </S.Container>
+          <S.Wrapper>
+            <WeatherContainer 
+              unit={this.state.temperatureUnit}
+              currently={this.state.todayWeather} 
+              city={this.state.city}
+              country={this.state.country}
+              forecast={this.state.nextDaysWeather}
+            />
+            <LocationComponent coordinate={this.state.coordinate}/>
+          </S.Wrapper>
+        </S.Container>
+      </S.Background>
     );
   }
 }

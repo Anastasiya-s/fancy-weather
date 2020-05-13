@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Background = styled.div`
   box-sizing: border-box;
-  margin: 0;
-  padding: 0 50px;
   width: 100%;
   height: 100vh;
   background: url(${props => props.imageUrl}), rgba(0,0,0, 0.5);
   background-blend-mode: color;
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+export const Container = styled.div`
+  margin: 0;
+  padding: 0 50px;
   @media (max-width: 900px) {
     padding: 0 30px;
   }
