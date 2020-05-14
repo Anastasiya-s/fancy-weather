@@ -12,12 +12,12 @@ const TodayWeatherComponent = ({ weather, unit }) => {
   return (
     <S.Container>
       <S.Temperature>{grad}°{unit}</S.Temperature>
-      <div>
+      <S.Details>
         <Icon className={icon} style={{fill: 'red'}}/>
         <S.Span>{summary}</S.Span>
         <S.Span>Wind: {windSpeedMS} m/s</S.Span>
         <S.Span>Humidity: {humidityPercent} %</S.Span>
-      </div>
+      </S.Details>
     </S.Container>
   )
 }

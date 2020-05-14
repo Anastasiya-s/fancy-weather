@@ -6,6 +6,8 @@ import { Input } from '../input';
 
 import { opencageUrl, opencageAccesskey } from '../../../../api/opencagedata/opencage';
 
+import * as S from './SearchPanel.style';
+
 const SearchPanel = (props) => {
 
   const [ inputValue, setInputValue ] = useState('');
@@ -48,11 +50,13 @@ const  handleInputChange = (newValue) => {
   }, [inputValue])
 
   return (
-    <div>
-      {cityOptions.map(option => <div>{option.label}</div>)}
+    <S.SearchContainer>
       <Input onInputChange={handleInputChange}/>
+      <S.Options>
+        {cityOptions.map(option => <div>{option.label}</div>)}
+      </S.Options>
       <Button onClick={handleSearchSubmit}>Search</Button>
-    </div>
+    </S.SearchContainer>
   )
 }
 

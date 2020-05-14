@@ -11,13 +11,11 @@ const LocationComponent = ({ coordinate }) => {
   } 
   if(coordinate.length) {
     return (
-      <div>
-        <YMaps>
-          <div>
-            <Map state={{ center: coordinate, zoom: 11 }} />
-          </div>
-        </YMaps>
-      </div>
+      <YMaps>
+          <Map 
+            state={{ center: coordinate, zoom: 11 }}
+          />
+      </YMaps>
     )
   }
 

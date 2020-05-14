@@ -5,9 +5,11 @@ export const Container = styled.div`
   flex-flow: row nowrap;
 `;
 
-export const Wrapper = styled.div`
+export const Details = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  margin-left: 40px;
 `;
 
 export const Span = styled.span`
@@ -17,7 +19,7 @@ export const Span = styled.span`
   font-size: 1.5rem;
   color: white;
   text-shadow: 1px 1px 5px black;
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     font-size: 1rem;
   }
   @media (max-width: 600px) {
@@ -27,7 +29,7 @@ export const Span = styled.span`
 
 export const Temperature = styled.div`
   font-family: "Montserrat";
-  font-size: 15rem;
+  font-size: 13rem;
   line-height: 1.4;
   color: white;
   text-shadow: 1px 1px 5px black;
