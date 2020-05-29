@@ -16,7 +16,7 @@ export const Background = styled.div`
 export const Container = styled.div`
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 20px 50px;
   @media (max-width: 1000px) {
     padding: 0 30px;
     max-width: 800px;

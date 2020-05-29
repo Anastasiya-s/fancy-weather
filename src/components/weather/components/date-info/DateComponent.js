@@ -2,27 +2,13 @@ import React from 'react';
 
 import * as S from './DateComponent.style';
 
-class DateComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      time: new Date().toLocaleString()
-    }
-  }
+const DateComponent = () => {
+  const options = { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+  const time = new Date().toLocaleString('en-US', options)
 
-  componentDidMount() {
-    let date
-    setInterval(() => {
-      date = new Date().toLocaleString();
-      this.setState({ time: date})
-    }, 1000);
-  }
-  render() {
-    return (
-      <S.Date>{this.state.time}</S.Date>
-    
-    )
-  }
+  return (
+    <S.Date>{time}</S.Date>
+  )
 }
 
 export default DateComponent;
