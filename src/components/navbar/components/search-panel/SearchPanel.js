@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { Button } from '../button';
 import { Input } from '../input';
+import { OptionItem } from './components/option';
 
 import { opencageUrl, opencageAccesskey } from '../../../../api/opencagedata/opencage';
 
@@ -27,18 +28,18 @@ const SearchPanel = (props) => {
     })
   }
 
-const loadOptions = (inputValue) => {
-  // getCityOptions(inputValue);
-  setTimeout(() => getCityOptions(inputValue), 1000);
-};
+  const loadOptions = (inputValue) => {
+    // getCityOptions(inputValue);
+    setTimeout(() => getCityOptions(inputValue), 1000);
+  };
 
 
-const  handleInputChange = (newValue) => {
+  const handleInputChange = (newValue) => {
     const inputValue = newValue.replace(/\W/g, '');
-    setInputValue(inputValue);
     if (inputValue.length > 1) {
       loadOptions(inputValue);
     }
+    setInputValue(inputValue);
   };
 
   const handleSearchSubmit = () => {
@@ -52,10 +53,17 @@ const  handleInputChange = (newValue) => {
   return (
     <S.SearchContainer>
       <Input onInputChange={handleInputChange}/>
-      <S.Options>
-        {cityOptions.map(option => <div>{option.label}</div>)}
-      </S.Options>
       <Button onClick={handleSearchSubmit}>Search</Button>
+      <S.Options>
+        {cityOptions.map(option => {
+          console.log(option)
+          return (
+            <OptionItem key={option.label} value={option.value} onClick={console.log(value)}>{option.label}</OptionItem>
+            )
+          }
+          )
+        }
+      </S.Options>
     </S.SearchContainer>
   )
 }

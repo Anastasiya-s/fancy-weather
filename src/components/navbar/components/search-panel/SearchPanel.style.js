@@ -4,12 +4,16 @@ export const SearchContainer = styled.div`
   position: relative;
 `;
 
-export const Options = styled.div`
+export const Options = styled.ul`
   position: absolute;
-  width: 100%;
-  height: auto;
-  color: white;
   top: 40px;
   left: 0;
-  border: 1px solid white;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: white;
+  background-color: rgba(0,0,0, 0.7);
 `;
